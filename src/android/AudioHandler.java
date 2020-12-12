@@ -63,9 +63,8 @@ public class AudioHandler extends CordovaPlugin {
     private CallbackContext messageChannel;
 
 
-    public static String [] permissions = { Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    public static String [] permissions = { Manifest.permission.RECORD_AUDIO };
     public static int RECORD_AUDIO = 0;
-    public static int WRITE_EXTERNAL_STORAGE = 1;
 
     public static final int PERMISSION_DENIED_ERROR = 20;
 
@@ -79,12 +78,6 @@ public class AudioHandler extends CordovaPlugin {
         this.players = new HashMap<String, AudioPlayer>();
         this.pausedForPhone = new ArrayList<AudioPlayer>();
         this.pausedForFocus = new ArrayList<AudioPlayer>();
-    }
-
-
-    protected void getWritePermission(int requestCode)
-    {
-        PermissionHelper.requestPermission(this, requestCode, permissions[WRITE_EXTERNAL_STORAGE]);
     }
 
 
