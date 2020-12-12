@@ -538,13 +538,8 @@ public class AudioHandler extends CordovaPlugin {
 
     private void promptForRecord()
     {
-        if(PermissionHelper.hasPermission(this, permissions[WRITE_EXTERNAL_STORAGE])  &&
-                PermissionHelper.hasPermission(this, permissions[RECORD_AUDIO])) {
+        if(PermissionHelper.hasPermission(this, permissions[RECORD_AUDIO])) {
             this.startRecordingAudio(recordId, FileHelper.stripFileProtocol(fileUriStr));
-        }
-        else if(PermissionHelper.hasPermission(this, permissions[RECORD_AUDIO]))
-        {
-            getWritePermission(WRITE_EXTERNAL_STORAGE);
         }
         else
         {
